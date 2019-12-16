@@ -63,15 +63,12 @@ function operatorButtonHandler (event) {
   inputtedOperator = $(event.currentTarget).find('p').text();
   displayArray.push(inputtedOperator);
   updateDisplay();
-
-  // calculationArray.push(stringNumberToPush);
   calculationArray.push(inputtedOperator);
   stringNumberToPush = '';
   console.log(calculationArray);
 }
 
 function equalsButtonHandler (event) {
-  //check the first input is + or -, and handle it
   if (calculationArray[calculationArray.length - 1] === '') {
     calculationArray.pop();
   }
@@ -85,30 +82,42 @@ function equalsButtonHandler (event) {
   }
   stringNumberToPush = '';
   displayArray = [];
-  console.log(calculationArray);
 
-  //operator higher order process
-  while ((calculationArray.indexOf('*') !== -1 || calculationArray.indexOf('/') !== -1) && calculationArray.length > 3) {
+  while (
+    (calculationArray.indexOf('*') !== -1 || calculationArray.indexOf('/') !== -1)
+    && calculationArray.length > 3) {
     for(var index = 0; index < calculationArray.length; index++) {
       if (calculationArray[index] === '*' || calculationArray[index] === '/') {
-        calculationArray.splice(index - 1, 3, calculate(calculationArray[index - 1], calculationArray[index + 1], calculationArray[index]));
-        console.log(calculationArray);
+        calculationArray.splice(
+          index - 1,
+          3,
+          calculate(
+            calculationArray[index - 1],
+            calculationArray[index + 1],
+            calculationArray[index]));
         break;
       }
     }
   }
-  //operator higher order process
-  while ((calculationArray.indexOf('+') !== -1 || calculationArray.indexOf('-') !== -1) && calculationArray.length > 3) {
+
+  while (
+      (calculationArray.indexOf('+') !== -1 || calculationArray.indexOf('-') !== -1)
+      && calculationArray.length > 3) {
     for(var index = 0; index < calculationArray.length; index++) {
       if (calculationArray[index] === '+' || calculationArray[index] === '-') {
-        calculationArray.splice(index - 1, 3, calculate(calculationArray[index - 1], calculationArray[index + 1], calculationArray[index]));
+        calculationArray.splice(
+          index - 1,
+          3,
+          calculate(
+            calculationArray[index - 1],
+            calculationArray[index + 1],
+            calculationArray[index]));
         console.log(calculationArray);
         break;
       }
     }
   }
 
-  //for reserve three or two last data in array to calculate eg: 2+====
   if (calculationArray.length === 3) {
     num1 = calculationArray[0];
     num2 = calculationArray[2];
@@ -146,7 +155,6 @@ function updateDisplay () {
   $('#display-text').text(displayText);
 }
 
-//clear all data and display data
 function acButtonHandler () {
   stringNumberToPush = '';
   displayArray = [];
@@ -157,7 +165,7 @@ function acButtonHandler () {
   updateDisplay();
   $('#display-text').text('0');
 }
-//clear each single digit in display screen and if it is in claculationArray, delete it too
+
 function cButtonHandler () {
   if (calculationArray[calculationArray.length - 1] === '') {
     calculationArray.pop();
@@ -173,7 +181,8 @@ function cButtonHandler () {
     updateDisplay();
   } else {
     if(calculationArray.length !== 0){
-      calculationArray[calculationArray.length - 1] = calculationArray[calculationArray.length - 1].slice(0, -1);
+      calculationArray[calculationArray.length - 1]
+        = calculationArray[calculationArray.length - 1].slice(0, -1);
       displayArray.pop();
       updateDisplay();
     }
@@ -233,7 +242,6 @@ function checkOperator (operator) {
   return result;
 }
 
-//display screen to display ready to go for user
 function checkReady () {
   var display = $('#display-text').text();
   if (display === 'Ready') {
