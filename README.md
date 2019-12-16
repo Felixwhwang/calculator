@@ -6,7 +6,7 @@ A JavaScript calculator application, all devices oriented.
 - Basic Operations
 
 | Testing       | Keys Pressed  | Expected Result |
-| ------------- | ------------- | --------------- |
+| :------------ | ------------- | --------------- |
 | Addition      | 1 + 2 =       | 3               |
 | Multiplication| 2 * 3 =       | 6               |
 | Division      | 1 / 2 =       | 0.5             |
@@ -15,7 +15,7 @@ A JavaScript calculator application, all devices oriented.
 - Comprehensive Operations
 
 | Testing              | Keys Pressed         | Expected Result   |
-| -------------------- | -------------------- | ----------------- |
+| :------------------- | -------------------- | ----------------- |
 | Successive operation | 1 + 1 + 2 =          | 4                 |
 | Decimals             | 1 . 1 + 1 . 1 =      | 2.2               |
 | Multiple decimals    | 1 ... 1 + 1 ... 1 =  | 2.2               |
@@ -26,7 +26,7 @@ A JavaScript calculator application, all devices oriented.
 - Advanced Operations
 
 | Testing                       | Keys Pressed       | Expected Result   |
-| ----------------------------- | ------------------ | ----------------- |
+| :---------------------------- | ------------------ | ----------------- |
 | Premature operation           | ++++ 1 * 3 =       | 3                 |
 | Partial operand               | 3 * =              | 9                 |
 | Missing operation             | 3 =                | 3                 |
@@ -36,7 +36,7 @@ A JavaScript calculator application, all devices oriented.
 - Extra Operations
 
 | Testing            | Keys Pressed   | Expected Result   |
-| ------------------ | -------------- | ----------------- |
+| :----------------- | -------------- | ----------------- |
 | Operation repeat   | 1 + 1 = = =    | 4                 |
 | Operation rollover | 1 + 1 + = + =  | 8                 |
 
