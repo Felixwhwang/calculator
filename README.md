@@ -40,6 +40,9 @@ A JavaScript calculator application, all devices oriented.
 | Operation repeat   | 1 + 1 = = =    | 4                 |
 | Operation rollover | 1 + 1 + = + =  | 8                 |
 
+## Preview
+![calculator](https://user-images.githubusercontent.com/31264160/70873207-926dfa00-1fa4-11ea-8085-a87bd624038e.gif)
+
 ## Technologies
 - JavaScript
 - jQuery
