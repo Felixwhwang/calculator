@@ -11,11 +11,10 @@ var calculationResult = null;
 var num1 = null;
 var num2 = null;
 var op = null;
-var cArray = []; //for C purpose
+var cArray = [];
 
-//click sound
 var clickSound = new Audio();
-clickSound.src = '../client/assets/sound/click.mp3';
+clickSound.src = './assets/audio/click.mp3';
 
 function applyClickHandlers () {
   $('#number-block').on('click', '.number', numberButtonHandler);
@@ -156,6 +155,7 @@ function acButtonHandler () {
   num2 = null;
   op = null;
   updateDisplay();
+  $('#display-text').text('0');
 }
 //clear each single digit in display screen and if it is in claculationArray, delete it too
 function cButtonHandler () {
@@ -167,17 +167,16 @@ function cButtonHandler () {
     stringNumberToPush = stringNumberToPush.slice(0, -1);
     displayArray.pop();
     updateDisplay();
-    console.log(calculationArray);
   } else if (checkOperator(calculationArray[calculationArray.length - 1])) {
     calculationArray.pop();
     displayArray.pop();
     updateDisplay();
-    console.log(calculationArray);
   } else {
-    calculationArray[calculationArray.length - 1] = calculationArray[calculationArray.length - 1].slice(0, -1);
-    displayArray.pop();
-    updateDisplay();
-    console.log(calculationArray);
+    if(calculationArray.length !== 0){
+      calculationArray[calculationArray.length - 1] = calculationArray[calculationArray.length - 1].slice(0, -1);
+      displayArray.pop();
+      updateDisplay();
+    }
   }
 
 }
